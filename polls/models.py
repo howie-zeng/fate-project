@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+class submit(models.Model):
+    age = models.CharField()
+    gender = models.CharField()
+    education = models.CharField()
+    date_submitted = models.DateTimeField(auto_now_add=True)

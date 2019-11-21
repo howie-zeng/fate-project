@@ -1,0 +1,188 @@
+/* search query */
+.search{
+  align-content: center;
+  padding: 2rem;
+}
+.searchBar{
+  display:flex;
+  flex-direction: row;
+  background-color: #ECECEC;
+  border-radius: 3.4em;
+  width: 80%;
+  height: 3em;
+  justify-content: space-around;
+  align-items:  center;
+  flex-direction: row;
+  border: 0.1em solid #ECECEC;
+}
+
+.search_icon{
+  height: 1.5em;
+  width: 1.5em;
+  padding: 0.5em 1em 0.5rem 0.5em;
+  border-right: 0.1em solid #888888;
+}
+
+#search-word{
+  font-size: 1.2em;
+  background-color: #ECECEC;
+  width: 90%;
+  border: none;
+}
+
+.resultInfo{
+  padding-left: 3rem;
+  padding-right: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.resultInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+#form{
+  padding-top: 3.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button_div{
+  text-align: center;
+}
+.submit{
+  position: relative;
+  background-color: #ECECEC;
+  border: none;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 1.5rem;
+}
+
+.submit:after {
+  content: "";
+  background: rgb(56, 48, 110);
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.submit:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.rating{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* The Radio*/
+.container {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.mark {
+  height: 2.5em;
+  width: 2.5em;
+  background-color: #eee;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container:hover input ~ .mark {
+  background-color: #ccc;
+}
+
+.container input:checked ~ .mark {
+  background-color: #411B8D;
+  color: white;
+}
+
+.mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .mark:after {
+  display: block;
+}
+
+.container .mark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.title{
+  margin-top: 0.5em;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: blue;
+  text-decoration: underline;
+}
+
+.url{
+  font-size: 1em;
+  color: #008000;
+}
+
+.description{
+  font-size: 1em;
+  color: #565656;
+}
+
+.result{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+strong{
+  font-size: 1em;
+}
