@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<style>
+h2 {
+  text-align: center;
+  color: #411B8D;
+}
+.submit {
+  margin: 1em;
+  color: white;
+  text-align: center;
+  font-size: 1em;
+  border-radius: 5%;
+  background: white;
+  color: #888888;
+}
+#thank-you {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.mturk-id {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<h2>Thank you!</h2>
+<main>
+  <div id="thank-you">
+    <p>
+      Thank you for taking this survey. Your participation is now complete. Please
+      go back to Mechanical Turk and enter the following string. We will verify
+      your responses and this string, and if it all looks good, your payment
+      will be processed within the next three days.
+    </p>
+  </div>
+  <div class="mturk-id">
+  <form>
+    <label for="mturk-id">Please enter your <b>MTurk ID</b> below:</label><br>
+    <input type="text" name="mturk-id" size="20" id="text-box" required style="margin: 2rem; border-radius: 3.2rem;"> <br>
+    <input class="submit" type="submit" value="Submit" id="submit" onclick="disable()">
+  </form>
+    <p class="hidden" id="alert">
+      Please go back to Mechanical Turk and enter the following string. We will verify
+      your responses and this string, and if it all looks good, your payment will
+      be processed within the next three days.
+    </p>
+  </div>
+</main>
+<script>
+    function disable() {
+        var pass = confirm("Please confirm your Mturk ID is correct!!!")
+        if (!pass){
+          return false
+        }
+        let alert = document.getElementById("alert");
+        alert.classList.remove("hidden");
+        let textBox = document.getElementById("text-box");
+        textBox.disabled = true;
+        let submit = document.getElementById("submit");
+        submit.disabled = true;
+    }
+</script>
+</body>
+</html>

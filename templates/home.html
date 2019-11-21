@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<style>
+
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #411B8D;
+}
+
+#terms {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.button {
+  font-weight: bold;
+  margin: 1em;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5%;
+}
+
+.button:hover {
+  background-color: green;
+}
+</style>
+</head>
+<body>
+
+<h1>Welcome</h1>
+<main>
+  <div style="padding: 1rem; display: flex; flex-direction: column;">
+    <p>
+      This is a task for MTurk workers. If you want to participate and get paid,
+      please visit <a href="">…</a> first.
+    </p>
+    <p>
+      For this task, you will be shown a search query and a set of top-5 results.
+      You will have 15 seconds to rate the results on a scale of 1-5 to indicate
+      how much you think they are relevant to the search terms. There will be 40 such units.
+      Once done, you will be asked to enter your MTurk ID and given a code. You will need
+      to return to MTurk and enter this code under this HIT. Please read the consent
+      below and if you agree, click ‘Start’ to start the task.
+    </p>
+    <p>
+      This study has been explained to me. I volunteer to take part in this research.
+      I have had a chance to ask questions. If I have questions later about the research,
+      or if I have been harmed by participating in this study, I can contact one
+      of the researchers listed on the first page of this consent form. If I have
+      questions about my rights as a research subject, I can call the Human Subjects
+      Division at (206) 543-0098 or call collect at (206) 221-5940. I acknowledge
+      that I am not affiliated with University of Washington (UW), a family member
+      of a UW employee, or UW student involved in this particular research.
+    </p>
+  </div>
+  <div id="terms">
+    <p><strong>By clicking the button, I agree and consent to the terms of service:</strong></p>
+    <br/><button class="button" onclick='redirect()'>Start</button>
+  </div>
+</main>
+
+<script>
+    function redirect() {
+        window.location = window.location + "demographics/";
+    }
+</script>
+</body>
+</html>

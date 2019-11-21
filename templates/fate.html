@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Project</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="{% static 'fate.css' %}" rel="stylesheet"/>
+    <script src="{% static 'GoogleSearch.js' %}"></script>
+  </head>
+
+  <body>
+    <div class="search">
+      <div class="searchBar" id="searchBar">
+        <img class="search_icon" src="{% static 'Image/search.png' %}" alt="search_icon">
+        <input id="search-word" type="text" name="search" disabled>
+      </div>
+    </div>
+      <div class="searchResult">
+        <div class="resultInfo">
+        </div>
+      </div>
+        <form id="form" class="form" name="rating" method="post">
+          <strong>Select rating: </strong>
+          <div class="rating">
+            <label class="container">
+              <input type="radio" name="rating" value=1>
+              <span class="mark"><strong class="number">1</strong></span>
+            </label>
+            <label class="container">
+              <input type="radio" name="rating" value=2>
+              <span class="mark"><strong class="number">2</strong></span>
+            </label>
+            <label class="container">
+              <input type="radio" name="rating" value=3>
+              <span class="mark"><strong class="number">3</strong></span>
+            </label>
+            <label class="container">
+              <input type="radio" name="rating" value=4>
+              <span class="mark"><strong class="number">4</strong></span>
+            </label>
+            <label class="container">
+              <input type="radio" name="rating" value=5>
+              <span class="mark"><strong class="number">5</strong></span>
+            </label>
+          </div>
+        <p><strong id="clock" style="color: 000000;">15</strong></p>
+        </form>
+        <div class="button_div">
+          <button class="submit" type="button">Submit</button>
+        </div>
+  </body>
+</html>
