@@ -82,6 +82,7 @@ def thank(request):
                         mturkId = ID,
                         userResponses = userResponses
                         )
+        data.save()
         writeToCSVFiles(respondent, userResponses,ID)
 
     return render(request, "end.html")

@@ -143,9 +143,9 @@ var count = 0;
        link.innerHTML = responseData[index][i][2];
        description.innerHTML = responseData[index][i][3];
        //the title should be clickable
-       title.href = responseData[index][i][2];;
+       //title.href = responseData[index][i][2];;
        // open the link in a new window
-       title.target = "_blank";
+       //title.target = "_blank";
        resultInfo.appendChild(title);
        resultInfo.appendChild(link);
        resultInfo.appendChild(description);
