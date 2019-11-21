@@ -81,14 +81,11 @@ WSGI_APPLICATION = 'webpage.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgresql-infinite-36821',
-        'USER': 'pqwvzwzlomgdly',
-        'PASSWORD': '73722f4762cfd84188dfc7f1f54f5270c0c667eff42ceab31ee2dcd07fd1d632',
-        'HOST': 'ec2-54-235-66-1.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+#connecting to server
 
 
 # Password validation
@@ -124,19 +121,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-django_heroku.settings(locals())
-
-#connecting to the server
-import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
