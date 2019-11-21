@@ -5,10 +5,12 @@ class UserInfo(models.Model):
     age = models.CharField(max_length=100, default="None")
     gender = models.CharField(max_length=100, default="None")
     education = models.CharField(max_length=100, default="None")
-
+    mturkId = models.CharField(max_length=100)
+    userResponses = models.CharField(max_length=50)
     def __str__(self):
-        return self.ip_address
+        return self.mturkId
 
+'''
 class Algorithm(models.Model):
     name = models.CharField(max_length=20)
 
@@ -31,3 +33,4 @@ class Response(models.Model):
 
     def __str__(self):
         return "Query: " + self.query.query_name + "Choice: " + self.chosen_alg.name
+'''

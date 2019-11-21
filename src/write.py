@@ -12,7 +12,6 @@ def writeToCSVFiles(respondent, rating, ID):
 def writeToRespondent(respondent):
     if(len(respondent) != 5):
         print("Respondent data misMatch. Expected: 5, Given: " + str(len(respondent)))
-        print("The given data is: " + respondent)
         return
 
     dirname = os.path.dirname(__file__)
@@ -42,9 +41,3 @@ def writeToRating(rating, ID, num):
     print(len(rating))
     print(rating[0])
     """
-
-
-
-
-
-

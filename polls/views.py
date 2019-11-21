@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.http import JsonResponse
 import os
 import json
+from .models import *
 
 import sys
 sys.path.insert(0, 'src')
@@ -74,6 +75,13 @@ def thank(request):
         global respondent
         ID = request.GET['mturk-id']
         respondent.append(ID)
+        data = UserInfo(ip_address = get_ip_address(request),
+                        age = respondent[0],
+                        gender = respondent[1],
+                        education = respondent[2],
+                        mturkId = ID,
+                        userResponses = userResponses
+                        )
         writeToCSVFiles(respondent, userResponses,ID)
 
     return render(request, "end.html")
