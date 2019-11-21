@@ -1,4 +1,3 @@
-
 // Global Variable
 var index = 0;
 var responseData;
