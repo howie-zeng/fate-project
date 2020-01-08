@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<style>
+  h1, div, img {
+    text-align: center;
+  }
+
+  h1 {
+    color: #411B8D;
+  }
+
+  #terms {
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  .button {
+    font-weight: bold;
+    margin: 1em;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5%;
+  }
+
+  .button:hover {
+    background-color: green;
+  }
+</style>
+</head>
+<body>
+  <main>
+  <h1>Instructions</h1>
+  <div>
+    <p>
+      A search query and the top 5 results from it are shown below. You will need to rate
+      the results on a scale of 1-5 to indicate how good they are, <strong>1 being the worst
+      and 5 being the best</strong>.<br>You will have 20 seconds for each set of results.
+    </p>
+  </div>
+  <img src="{% static 'Image/instructions.png' %}" alt="demo">
+  <div id="terms">
+    <button class="button" name='begin' onclick='redirect()'>Begin</button>
+  </div>
+  </main>
+
+</body>
+<script>
+    function redirect() {
+        var link = window.location.href
+        window.location = link.substring(0, link.length - 13) + "main/";
+    }
+</script>
+</html>

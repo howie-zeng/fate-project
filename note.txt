@@ -1,0 +1,25 @@
+Date: 2019/10/24
+Author: Yukai Yan
+
+Make sure Django is downloaded onto your computer from: https://www.djangoproject.com/
+If not working, move the django folder under this project.
+
+1. src folder contains the extraction info for getting the data from the database(?)
+   You can run the test.py file to check if absolute path works and get a sample of what data is returned
+
+2. Updates about web programming should be made in the files located in webpage/static folder
+   !(NOT webpage/webpage/static folder!)!
+   Even though you did, you might not see the updates you made on the server
+
+3. For using the front end, cd webpage, then
+   a. py manage.py runserver      -- start front end
+   b. py manage.py collectstatic  -- run after step 2 (if updates are not implemented)
+   c. py manage.py migrate        -- after deletion/addition new files (in the folder mentioned in No.2)
+
+4. Adjusting webpage/webpage/settings.py as necessary (e.g. last line),
+   but PLEASE DON'T COMMIT changes made with absolute path, thanks.
+
+5. Future works:
+   a. About the program overall: getting data back from the user, and store it somewhere
+   b. Frontend: Display the appropriate data and record what user typed/picked.
+   c. Potential work: Django's database(SQL) in models.py, privacy concerns, Web publication and maintenance.

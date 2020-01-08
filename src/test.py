@@ -3,8 +3,8 @@ import write
 
 
 def testExtraction():
-    result = ex.extractFromFile("01gfp.txt", 6)
-    print(result[3][1][0])
+    result = ex.extractFromFile("05gfp.txt", 6)
+    print(result[3])
 
 
 def testWriteToCSV():
@@ -18,5 +18,5 @@ def testWriteToCSV():
 
 
 if __name__ == '__main__':
-    testWriteToCSV()
+    testExtraction()
 

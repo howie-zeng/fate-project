@@ -1,6 +1,6 @@
 # Author: Danny Saelid
-import pickle
 import os
+import pickle
 
 
 # splits the DOCUMENT# by the middle '00' to get qid and r
@@ -19,16 +19,22 @@ def splitByDoubleZeros(doc_num):
 
 
 # finds the index of a Snippet with the given original rank in a list of Snippets
-# might be improved upon with binary search if the snippet_list is sorted by original rank
-# returns -1 if the desired Snippet is not found
-def getIndexOf(rank, snippet_list):
-    ind = 0
-    for snip in snippet_list:
-        if (int (snip.get_rank()) == rank):
-            return ind
-        ind += 1
-
-    return -1
+# returns None if the desired Snippet is not found
+def binarySnippetSearch(low_index, high_index, og_rank, snippet_list):
+    median = int((low_index + high_index) / 2)
+    median_rank = int(snippet_list[median].get_rank())
+    # print("low: " + str(low_index) + " high: " + str(high_index) + " high rank: " + snippet_list[high_index].get_rank())
+    if median_rank == og_rank:
+        return snippet_list[median]
+    elif low_index == high_index:
+        print("couldn't find snippet with og_rank" + str(og_rank))
+        return None
+    elif low_index == high_index - 1:
+        return binarySnippetSearch(high_index, high_index, og_rank, snippet_list)
+    elif median_rank < og_rank:
+        return binarySnippetSearch(median, high_index, og_rank, snippet_list)
+    else:
+        return binarySnippetSearch(low_index, median, og_rank, snippet_list)
 
 
 """
@@ -41,15 +47,16 @@ for each qid, snippet1 corresponds to the first snippet in the reranked list
 """
 
 
+# query 82 is nonexistent
 def extractFromFile(file_name, num_snippets):
-    dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname, "../SampleData/", file_name)
-    file = open(filename)
+    #dirname = os.path.dirname(__file__)
+    #filename = os.path.join(dirname, "./SampleData/", file_name)
+    file = open('./SampleData/' + file_name, "r")
     lines = file.readlines()
     file.close()
 
-    myPickle = os.path.join(dirname, "../src/snippet.pickle")
-    with open(myPickle,'rb') as fr:
+    #myPickle = os.path.join(dirname, "./src/snippet.pickle")
+    with open('./src/snippet.pickle', 'rb') as fr:
         query_snippet_list = pickle.load(fr)
 
     results = {}
@@ -65,8 +72,8 @@ def extractFromFile(file_name, num_snippets):
         q_and_r = splitByDoubleZeros(tokens[2])
         qid = int(q_and_r[0])
 
-        # once a new qid is reached, set currQid equal to it,
-        # set snippetsAdded equal to zero, and add an empty list at
+        # once a new qid is reached, set curr_qid equal to it,
+        # set snippets_added equal to zero, and add an empty list at
         # results[currQid]
         if curr_qid != qid:
             curr_qid = qid
@@ -79,14 +86,14 @@ def extractFromFile(file_name, num_snippets):
 
             query_snippet = query_snippet_list[qid - 1]
             snippet_list = query_snippet.snippetList
-            sid = getIndexOf(og_rank, snippet_list)
-            curr_snippet = snippet_list[sid]
-
-            if og_rank != int(curr_snippet.get_rank()):
-                print("Current Snippet's original rank is unequal to the 'r' field in the .txt file.")
+            curr_snippet = binarySnippetSearch(0, len(snippet_list) - 1, og_rank, snippet_list)
+            if curr_snippet is None:
+                print(curr_qid)
+            # if og_rank != int(curr_snippet.get_rank()):
+            # print("Current Snippet's original rank is unequal to the 'r' field in the .txt file.")
 
             # [query_name, title, url, description]
-            # replaces double quotes with single quotes to avoid messing up JSON
+            # replaces double quotes with single quotes
             results[qid].append([query_snippet.query.replace('"', "'"), curr_snippet.get_title().replace('"', "'"),
                                  curr_snippet.get_url().replace('"', "'"), curr_snippet.get_desc().replace('"', "'")])
 

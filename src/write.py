@@ -8,10 +8,10 @@ def writeToCSVFiles(respondent, rating, ID):
     writeToRating(rating, ID, 4)
 
 
-# ['age','gender','education level','ip address', 'mturk-id']
+# ['age','gender','education level','ip address', 'browser-info', 'mturk-id']
 def writeToRespondent(respondent):
-    if(len(respondent) != 5):
-        print("Respondent data misMatch. Expected: 5, Given: " + str(len(respondent)))
+    if len(respondent) != 6:
+        print("Respondent data misMatch. Expected: 6, Given: " + str(len(respondent)))
         return
 
     dirname = os.path.dirname(__file__)
@@ -23,7 +23,7 @@ def writeToRespondent(respondent):
 
 # ['mturk-id','algorithm','query','rating','time spent']
 def writeToRating(rating, ID, num):
-    if (len(rating) != 160):
+    if len(rating) != 160:
         print("Rating data misMatch. Expected: 160, Given: " + str(len(rating)))
         return
 

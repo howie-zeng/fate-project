@@ -46,34 +46,33 @@ h2 {
   <form>
     <label for="mturk-id">Please enter your <b>MTurk ID</b> below:</label><br>
     <input type="text" name="mturk-id" size="20" id="text-box" required style="margin: 2rem; border-radius: 3.2rem;"> <br>
-    <input class="submit" type="submit" value="Submit" id="submit" onclick="disable()">
+    <input class="submit" type="submit" id="submit" onclick="disable()">
   </form>
     <p class="hidden" id="alert">
-      Please go back to Mechanical Turk and enter the following string. We will verify
-      your responses and this string, and if it all looks good, your payment will
+      We will verify your responses and if it all looks good, your payment will
       be processed within the next three days.
     </p>
   </div>
 </main>
 <script>
-function disable() {
-    var pass = confirm("We have received your MurkID, thanks for your time!")
+    function disable() {
 
-    let alert = document.getElementById("alert");
-    alert.classList.remove("hidden");
-    let textBox = document.getElementById("text-box");
-    textBox.disabled = true;
-    let submit = document.getElementById("submit");
-    submit.disabled = true;
+        let alert = document.getElementById("alert");
+        alert.classList.remove("hidden");
+        let textBox = document.getElementById("text-box");
+        textBox.disabled = true;
+        let submit = document.getElementById("submit");
+        submit.disabled = true;
 
-    let response = textBox.value;
+        let response = textBox.value;
 
-    // end/?mturk-id=myID
-    const Http = new XMLHttpRequest();
-    const url= window.location + "?mturk-id=" + response;
-    Http.open("GET", url);
-    Http.send();
-}
+        // end/?mturk-id=myID
+        const Http = new XMLHttpRequest();
+        const url= window.location + "?mturk-id=" + response;
+        Http.open("GET", url);
+        Http.send();
+
+    }
 </script>
 </body>
 </html>
